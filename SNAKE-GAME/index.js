@@ -1,7 +1,7 @@
 //html elements
 const board = document.getElementById('board')
 const scoreBoard = document.getElementById('scoreBoard')
-const startButton = document.getElementById('start')
+const startButtom = document.getElementById('start')
 const gomeOverSing = document.getElementById('gameOver')
 
 //gamr setting
@@ -30,11 +30,16 @@ let emptySquare;
 let moveInterval;
 
 const createBoard = () => {
-    boardSquare.forEch ((row, rowIndex) =>{
-     row.forEch((column, columnindex) =>{
-        const squareValue = ${rowIndex}${clolumnndex};
+    boardSquare.forEch ((row, rowIndex) => {
+     row.forEch((column, columnndex) => {
+        const squareValue = `${rowIndex}${columnndex}`;
         const squareElement = document.createElement('div');
-        })   
+        squareElement.setAttribute('class','square emptySquare');
+        squareElement.setAttribute('id', squareValue);
+        board.appendChild(squareElement);
+        emptySquares.push(squareValue);
+    
+     })   
     })
 }
 
@@ -53,6 +58,6 @@ const startGame = () => {
     setGame();   
 }
 
-startButton.addEventListener('click', startGame)
+startButtom.addEventListener('Click', startGame);
 
 
