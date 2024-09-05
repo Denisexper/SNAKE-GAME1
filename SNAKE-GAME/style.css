@@ -6,6 +6,9 @@
     max-width: 500px;
 }
 
+/*Hola probando subir repositorio desde vscode*/
+
+
 #board{
     display: grid;
     grid-template-columns: repeat(10,1fr);
