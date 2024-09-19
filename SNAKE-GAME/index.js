@@ -1,63 +1,62 @@
 //html elements
-const board = document.getElementById('board')
-const scoreBoard = document.getElementById('scoreBoard')
-const startButtom = document.getElementById('start')
-const gomeOverSing = document.getElementById('gameOver')
+const board = document.getElementById('board');
+const scoreBoard = document.getElementById('scoreBoard');
+const startButton = document.getElementById('start');
+const gameOverSign = document.getElementById('gameOver');
 
-//gamr setting
+//game settings
 const boardSize = 10;
 const gameSpeed = 100;
-const squareType = {
+const squareTypes = {
     emptySquare: 0,
     snakeSquare: 1,
     foodSquare: 2
 };
 
 const directions = {
-    ArrowUp:-10,
-    ArrowDown:-10,
+    ArrowUp: -boardSize,
+    ArrowDown: boardSize,
     ArrowRight: 1,
-    ArrowLeft:-1,
-
+    ArrowLeft: -1
 };
 
 //game variables
 let snake;
 let score;
-let direcction;
-let boardSquare;
-let emptySquare;
+let direction;
+let boardSquares;
+let emptySquares;
 let moveInterval;
 
 const createBoard = () => {
-    boardSquare.forEch ((row, rowIndex) => {
-     row.forEch((column, columnndex) => {
-        const squareValue = `${rowIndex}${columnndex}`;
-        const squareElement = document.createElement('div');
-        squareElement.setAttribute('class','square emptySquare');
-        squareElement.setAttribute('id', squareValue);
-        board.appendChild(squareElement);
-        emptySquares.push(squareValue);
-    
-     })   
-    })
-}
+    boardSquares.forEach((row, rowIndex) => {
+        row.forEach((column, columnIndex) => {
+            const squareValue = `${rowIndex}${columnIndex}`;
+            const squareElement = document.createElement('div');
+            squareElement.setAttribute('class', 'square emptySquare');
+            squareElement.setAttribute('id', squareValue);
+            board.appendChild(squareElement);
+            emptySquares.push(squareValue);
+        });
+    });
+};
 
 const setGame = () => {
-    snake = ['00','01','02','03']
+    snake = ['00', '01', '02', '03'];
     score = snake.length;
-    direcction = 'ArrowRight';
-    boardSquare = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
-    console.log(boardSquare)
+    direction = 'ArrowRight';
+    boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
+    console.log(boardSquares);
     board.innerHTML = '';
     emptySquares = [];
-    createboard();
-}
+    createBoard();
+};
 
 const startGame = () => {
-    setGame();   
-}
+    setGame();
+};
 
-startButtom.addEventListener('Click', startGame);
+startButton.addEventListener('click', startGame);
+
 
 

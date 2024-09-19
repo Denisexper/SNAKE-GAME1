@@ -1,17 +1,20 @@
 * {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Share Tech Mono', monospace; /* Se mantiene la fuente importada */
 }
 
-#board, .boardInf{
+#board, .boardInf {
+    width: 100%;
     max-width: 500px;
+    margin: 0 auto;
 }
 
-/*Hola probando subir repositorio desde vscode*/
-
-
-#board{
+/* Configuración del tablero */
+#board {
     display: grid;
-    grid-template-columns: repeat(10,1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr); /* Aseguramos un tablero cuadrado */
+    gap: 2px; /* Añade un espacio pequeño entre las celdas */
+    background-color: #333; /* Fondo oscuro para el tablero */
 }
 
 #start, .boardInf {
@@ -20,27 +23,43 @@
 
 #gameOver {
     display: none;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+    margin-top: 20px;
 }
 
 .boardInf {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
 }
 
 #start {
-    background-color:chocolate;
+    background-color: chocolate;
     border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#start:hover {
+    background-color: darkorange;
+}
+
+#scoreBoard {
+    display: inline-flex;
+    font-size: 25px;
     color: white;
 }
 
- #scoreBoard {
-    display: inline-flex;
- }
-
- .square {
-    aspect-ratio: 1;
- }
+.square {
+    width: 100%;
+    aspect-ratio: 1; /* Mantener celdas cuadradas */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 
 .emptySquare {
     background-color: aqua;
